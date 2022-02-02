@@ -1,11 +1,10 @@
-package io.github.indroDevTeam.saverLib.sqlmanager;
+package indroDevTeam.indrocraftLib.sqlmanager;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import indrocraft.utils.sqlUtils.SQLLogger;
-import indrocraft.utils.sqlUtils.SQLLogger.Severity;
+import indroDevTeam.indrocraftLib.sqlmanager.SQLLogger.Severity;
 
 @SuppressWarnings("unused")
 public abstract class SQLUtils {
