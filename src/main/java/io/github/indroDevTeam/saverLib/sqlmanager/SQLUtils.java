@@ -1,15 +1,14 @@
-package indrocraft.utils.sqlUtils;
+package io.github.indroDevTeam.saverLib.sqlmanager;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import indrocraft.utils.sqlUtils.SQLLogger;
 import indrocraft.utils.sqlUtils.SQLLogger.Severity;
 
-
-
-
-public class SQLUtils {
+@SuppressWarnings("unused")
+public abstract class SQLUtils {
 
     public Connection connection;
 
@@ -123,7 +122,7 @@ public class SQLUtils {
         }
         try {
             PreparedStatement ps = conn.prepareStatement("UPDATE "+ tableName +" SET "+ column +"=? WHERE "+ idColumn+"=?");
-            ps = prepareStatement(ps,id,1);
+            prepareStatement(ps, id, 1);
             ps.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
@@ -145,7 +144,7 @@ public class SQLUtils {
         }
         try {
             PreparedStatement ps = conn.prepareStatement("SELECT "+ column + " FROM "+ tableName +" WHERE ?="+ idColumn);
-            ps = prepareStatement(ps,idEquals,1);
+            prepareStatement(ps, idEquals, 1);
             ResultSet rs = ps.executeQuery();
             Object info;
             rs.next();
@@ -167,10 +166,8 @@ public class SQLUtils {
         ALL("*");
 
         Operation(String sqlOperator){
-            this.sqlOperator = sqlOperator;
         }
 
-        private final String sqlOperator;
     }
 
     /**
@@ -191,7 +188,7 @@ public class SQLUtils {
 
 
         try {
-            PreparedStatement ps = null;
+            PreparedStatement ps;
             if (!(operation == Operation.ALL)){
                 ps = conn.prepareStatement("SELECT "+ column +" FROM "+ tableName +" WHERE " +
                     idColumn+ operation+"?");
@@ -201,14 +198,14 @@ public class SQLUtils {
             }
             prepareStatement(ps,idEquals,1);
             ResultSet rs = ps.executeQuery();
-            List<Object> info = new  ArrayList<Object>();
+            List<Object> info = new ArrayList<>();
             while (rs.next()) {
                 info.add(rs.getObject(column));
             }
             return info;
         } catch (SQLException e) {
             printSQLException(e);
-            return new ArrayList<Object>();
+            return new ArrayList<>();
         }
 
 
@@ -223,7 +220,7 @@ public class SQLUtils {
         } else {
             ps.setString(loc, (String) value);
         }
-        return  ps;
+        return ps;
     }
 
 
