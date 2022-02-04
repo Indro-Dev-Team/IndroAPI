@@ -1,2 +1,1 @@
-<h2>This is a place holder the actual IndrocraftLib can be accessed
-<a href="https://github.com/OMEN44/IndrocraftAPI">here</a> on OMEN44's github. </h2>
+<h2>This is the Connector that connects Indro Dev Team Plugins to IndroCore</h2>
