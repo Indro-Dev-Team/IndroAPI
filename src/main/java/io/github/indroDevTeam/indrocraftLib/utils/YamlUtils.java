@@ -1,4 +1,4 @@
-package indroDevTeam.indrocraftLib.utils;
+package io.github.indroDevTeam.indrocraftLib.utils;
 
 import java.io.File;
 import java.io.IOException;

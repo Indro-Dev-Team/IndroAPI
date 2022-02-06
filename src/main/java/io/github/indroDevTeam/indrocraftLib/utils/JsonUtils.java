@@ -1,4 +1,4 @@
-package indroDevTeam.indrocraftLib.utils;
+package io.github.indroDevTeam.indrocraftLib.utils;
 
 import org.bukkit.Bukkit;
 import org.json.simple.JSONObject;

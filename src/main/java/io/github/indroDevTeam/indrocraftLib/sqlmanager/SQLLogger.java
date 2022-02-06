@@ -1,4 +1,4 @@
-package indroDevTeam.indrocraftLib.sqlmanager;
+package io.github.indroDevTeam.indrocraftLib.sqlmanager;
 
 import java.util.logging.Logger;
 
