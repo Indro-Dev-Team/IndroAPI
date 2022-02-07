@@ -1,6 +1,9 @@
 package io.github.indroDevTeam.indrocraftLib.economy;
 
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public interface Economy {
@@ -14,4 +17,29 @@ public interface Economy {
     boolean hasAccount(Player player);
     void addWallet(Player player, int amount);
     void minusWallet(Player player, int amount);
+
+
+    void createBank(String bankName, OfflinePlayer bankOwner);
+
+
+    void deleteBank(String bankName);
+
+
+    Integer bankBalance(String bankName);
+
+    boolean bankHas(String bankName, int value);
+
+    int bankWithdraw(String bankName, int value);
+
+    int bankDeposit(String bankName, int value);
+
+    boolean isBankOwner(String bankName, String playerName);
+
+    boolean isBankOwner(String bankName, OfflinePlayer bankOwner);
+
+    boolean isBankMember(String bankName, String playerName);
+
+    boolean isBankMember(String bankName, OfflinePlayer bankMember);
+
+    List<String> getBanks();
 }
